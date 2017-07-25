@@ -1,6 +1,6 @@
 <html>
 <body>
-<table style="width:100%">
+<div>
   <tr>
     <th><font color="#ffffff">Victim</th></font>
     <th><font color="#ffffff">Status</th></font> 
@@ -84,6 +84,44 @@ a:active {
 	text-decoration: none;
 }
 </style>
-<script src="music.js"></script>
-<script src="title.js"></script>
+<script type="text/javascript">
+var sound = new Array();
+sound[0]= "Attack.mp3"
+sound[1]= "Attack.mp3"
+sound[2]= "Attack.mp3"
+sound[3]= "Attack.mp3"
+sound[4]= "Attack.mp3"
+sound[5]= "Attack.mp3"
+
+var randomsound = Math.floor(Math.random() * 6);
+document.write ('<audio id="sound" loop autoplay preload><source src= "' + sound[randomsound] + '" hidden=true type="audio/mpeg" autostart=true loop=true>')
+</script>
+
+<script type="text/javascript">
+if (document.addEventListener) {
+    document.addEventListener("DOMContentLoaded", function() {
+        loaded();
+    });
+} else if (document.attachEvent) {
+    document.attachEvent("onreadystatechange", function() {
+        loaded();
+    });
+}
+
+function loaded() {
+
+    setInterval(loop, 250);
+
+}
+
+var x = 0;
+
+var titleText = [ "&#10015;", "&#10015;K", "&#10015;Kin", "&#10015;King", "&#10015;KingOf", "&#10015;KingOfT", "&#10015;KingOfThe", "&#10015KingOfTheD", "&#10015;KingOfTheDea", "&#10015;KingOfTheDead&#10015;", "&#10015;&#10015;&#10015;&#10015;&#10015;&#10015;&#10015;"];
+
+function loop() {
+
+    document.getElementsByTagName("title")[0].innerHTML = titleText[x++%titleText.length];
+
+}
+</script>
 </html>
